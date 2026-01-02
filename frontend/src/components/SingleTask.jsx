@@ -16,7 +16,7 @@ export default function SingleTask({ task, refreshList }) {
       {/* Left section: Title & due date */}
       <div className="flex flex-col cursor-pointer" onClick={handleNavigator}>
         <h2 className="text-lg font-semibold">{task.title}</h2>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm">
           Due: {new Date(task.dueDate).toLocaleDateString()}
         </p>
       </div>

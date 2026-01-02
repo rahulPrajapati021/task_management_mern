@@ -1,7 +1,7 @@
 import { useState } from "react";
 import apiService from "../services/apiService";
 import useAuth from "../context/AuthContext";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -54,7 +54,13 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className="flex justify-end mt-4">
+        <div className="flex justify-between mt-4">
+            <div className="text-[14px]">
+                <span>
+                    Don't have account,  
+                <Link className="text-blue-400" to="/register">{" "}Register here</Link>
+                </span>
+            </div>
           <input
             className="border-2 rounded-md px-4 py-2 cursor-pointer text-white"
             type="submit"

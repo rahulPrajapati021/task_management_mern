@@ -83,13 +83,13 @@ export async function getOneTask(req, res) {
 export async function getTaskList(req, res) {
     try {
         const {pageNumber, limit} = req.query;
-        console.log("quering " +pageNumber + " "+ limit);
+        const userId = req.user.id;
         if(pageNumber < 0 || limit < 0) {
             throw new Error("invalid query parameters");
         }
         const skipAmount = (pageNumber -1) * limit;
-        const taskList = await Task.find().sort({status: 'asc', priority: 'asc', dueDate: 'asc'}).skip(skipAmount).limit(limit).exec();
-        const totalCount = await Task.countDocuments();
+        const taskList = await Task.find({user: userId}).sort({status: 'asc', priority: 'asc', dueDate: 'asc'}).skip(skipAmount).limit(limit).exec();
+        const totalCount = await Task.find({user: userId}).countDocuments();
         return res.status(200).json({msg: "task list", taskList, totalCount});
     } catch (error) {
         res.status(500).json({msg: error.message});

@@ -37,7 +37,6 @@ export async function loginUser(req, res) {
             return res.status(400).json({msg: "Email & Password not exists"});
         }
         //compare password
-        console.log(password + " " + existingUser.password);
         if(bcrypt.compare(password, existingUser.password)) {
             // user succesfful login generate token & send
             const token = generateToken({id: existingUser.id, email});

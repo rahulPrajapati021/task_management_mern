@@ -21,12 +21,24 @@ class ApiService {
             if(error.response?.status === 401) {
                 this.logout();
             }
+            console.log(error.response)
+            let msg = "Something went wrong";
+            if(error.response?.data?.msg) {
+                msg = error.response.data.msg;
+            }
+            error.message = msg;
             return Promise.reject(error);
         })
 
     };
     async login(email, password) {
         const response = await this.api.post("/api/v1/user/login", {email, password});
+        const {token} = response;
+        localStorage.setItem("token", token);
+        return response.data;
+    }
+    async register(fullName, email, password) {
+        const response = await this.api.post("/api/v1/user/register", {fullName, email, password});
         const {token} = response;
         localStorage.setItem("token", token);
         return response.data;

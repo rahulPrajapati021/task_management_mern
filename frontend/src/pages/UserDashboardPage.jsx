@@ -23,6 +23,7 @@ export default function UserDashboardPage() {
     <div className="h-screen bg-slate-700 flex flex-col justify-between">
       <Navbar showAddTaskForm={() => setShowForm(true)} />
       <div className="w-3xl mx-auto space-y-4 flex-1 py-2">
+        {totalTask==0?<h1 className="text-red-400 text-center">"Click on Add Task button to create a task"</h1>: ""}
         {showForm ? <FormWrapper setShowForm={setShowForm} /> : ""}
         {taskList
           ? taskList.map((task) => <SingleTask refreshList={fetchData} key={task._id} task={task} />)

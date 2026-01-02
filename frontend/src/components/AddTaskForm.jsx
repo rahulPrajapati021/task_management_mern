@@ -62,6 +62,7 @@ export default function AddTaskForm({closeForm}) {
                 type="date"
                 id="dueDate"
                 name="dueDate"
+                required
                 value={formData.dueDate.substring(0, 10)}
                 onChange={handleChange}
                 className="w-full rounded-lg bg-slate-800 border border-slate-700 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -97,6 +98,7 @@ export default function AddTaskForm({closeForm}) {
                 value={formData.description}
                 onChange={handleChange}
                 rows={4}
+                required
                 className="w-full resize-none rounded-lg bg-slate-800 border border-slate-700 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Task description..."
               />
