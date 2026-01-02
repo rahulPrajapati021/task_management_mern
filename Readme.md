@@ -41,3 +41,15 @@ List of routes available -
     * /api/v1/task/markComplete/:id ~ Patch
     * /api/v1/task/updateTask/:id ~ Put
     * /api/v1/task/deleteTask/:id ~ Delete
+
+
+## Frontend 
+To create frontend I used react js, vite as bundler, for styling tailwind css, for routing react-router, for icons used lucide-react 
+
+List of pages - 
+
+* / ~ Homepage for logged in user (lists task)
+* /login ~ for login
+* /register ~ for registring a user
+* /editTask/:id ~ to edit a task
+* /task/:id ~ to read a task
