@@ -1,9 +1,15 @@
 import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
+import cors from 'cors'
 const app = express();
 // regular middlewares
 app.use(express.json());
+app.use(cors({
+    origin: ["pranton-task-management.netlify.app", "http://localhost:5500"],
+    credentials: true,
+}))
+
 
 // database connection
 import connectDatabase from "./config/db.js";

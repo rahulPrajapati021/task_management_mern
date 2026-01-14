@@ -4,6 +4,7 @@ class ApiService {
     api;
     constructor() {
         this.api = axios.create({
+            baseURL: "https://task-management-mern-ylmj.onrender.com",
             headers: {
                 "Content-Type": "application/json"
             },

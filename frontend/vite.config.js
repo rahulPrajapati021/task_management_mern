@@ -8,7 +8,9 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:8090"
+        target: "https://task-management-mern-ylmj.onrender.com",
+        changeOrigin: true,
+        secure: false
       }
     }
   }
